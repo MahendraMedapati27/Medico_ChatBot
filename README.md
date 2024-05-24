@@ -10,6 +10,13 @@ Medico Chat Bot is a rule-based chatbot designed to facilitate the process of pl
 - **Database Integration**: Utilizes a MySQL database for data storage and retrieval.
 - **Web Interface**: Includes a web interface for easy interaction with the chatbot.
 
+  ## ChatBot Working Explaination Video
+  
+
+https://github.com/MahendraMedapati27/Medico_ChatBot/assets/153280887/a6d9e776-f182-4fe7-80a1-bffb5448921a
+
+
+
 ## Files
 
 |-- main.py
