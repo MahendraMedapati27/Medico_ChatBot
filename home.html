@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Medico ChatBot</title>
+    <style>
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #3498db; /* Background color for the entire body */
+        }
+
+        #banner-image {
+            width: 100%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* Background color for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+            border-radius: 10px; /* Add rounded corners */
+        }
+
+        header nav {
+            background-color: #3498db; /* Background color for the navigation bar */
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+            border-radius: 5px; /* Add rounded corners */
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            position: relative;
+            transition: color 0.3s; /* Add transition effect */
+        }
+
+        header nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -5px;
+        }
+
+        header nav a:hover::after {
+            width: 100%;
+        }
+
+        header nav a:hover {
+            color: #f39c12; /* Change color on hover */
+        }
+
+        .chatBotIcon {
+            color: #444;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            position: relative;
+            transition: color 0.3s; /* Add transition effect */
+            cursor: pointer;
+        }
+
+        .chatBotIcon::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #444;
+            transition: width 0.3s;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -5px;
+        }
+
+        .chatBotIcon:hover::after {
+            width: 100%;
+        }
+
+        .chatBotIcon:hover {
+            color: #f39c12; /* Change color on hover */
+        }
+
+        section {
+            margin: 40px 0;
+            background-color: #fff; /* Background color for sections */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+            border-radius: 5px; /* Add rounded corners */
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        iframe.chat-bot {
+            display: block;
+            margin: 20px auto;
+            border: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            header nav a {
+                margin: 5px;
+            }
+
+            .chatBotIcon {
+                margin: 5px;
+            }
+        }
+
+        .chat-bot-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 90%; /* Occupying full height */
+            width: 350px; /* Adjust width as needed */
+            /*background-color: #3498db; /* Blue background color */
+            transition: transform 0.3s ease-in-out;
+            z-index: 999;
+            transform: translateX(100%);
+        }
+
+        .chat-bot-container.show {
+            transform: translateX(0);
+        }
+
+        .chat-bot {
+            width: 100%;
+            height: 100%; /* Occupying full height */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="#home">HOME</a> |
+                <a href="#menu">MENU</a> |
+                <a href="#location">LOCATION</a> |
+                <a href="#aboutus">ABOUT US</a> |
+                <a href="#contactus">CONTACT US</a>
+                <span id="chatBotIcon" class="chatBotIcon">🤖 Medico ChatBot</span>
+            </nav>
+        </header>
+
+        <section id="home">
+            <img src="banner.jpg" alt="Banner" id="banner-image">
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="grid-container">
+                <img src="menu.jpg" alt="Menu item 1">
+            </div>
+        </section>
+
+        <section id="location">
+            <h2>Location</h2>
+            <p>38 Ahemadnagar, Maharashtra</p>
+        </section>
+
+        <section id="aboutus">
+            <h2>About Us</h2>
+            <p>Learn more about our fast food restaurant and what makes us special.</p>
+        </section>
+
+        <section id="contactus">
+            <h2>Contact Us</h2>
+            <p>Got questions? Want to place an order? Call us at +91791534567 or email us at info@fastfood.com</p>
+        </section>
+    </div>
+
+    <div class="chat-bot-container">
+        <iframe class="chat-bot" width="100%" height="100%" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/d039c90c-b9ad-4b62-8d91-e2e4b52647e5"></iframe>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const chatBotIcon = document.getElementById("chatBotIcon");
+            const chatBotContainer = document.querySelector(".chat-bot-container");
+            const container = document.querySelector(".container");
+
+            chatBotIcon.addEventListener("click", function() {
+                chatBotContainer.classList.toggle("show");
+                container.classList.toggle("show-bot");
+            });
+        });
+    </script>
+</body>
+</html>
