@@ -31,11 +31,7 @@ Medico Chat Bot is a rule-based chatbot designed to facilitate the process of pl
 ## Usage
 
 1. Clone the repository to your local machine.
-2. Set up the MySQL database using `pharmacare.sql`.
-3. Install the required dependencies using `pip install -r requirements.txt`.
-4. Run the Flask server using `python main.py`.
-5. Access the web interface by navigating to `http://localhost:5000` in your web browser.
-6. Interact with the chatbot to place new orders, track orders, etc.
+2. open home.html.
 
 ## Navigation
 
