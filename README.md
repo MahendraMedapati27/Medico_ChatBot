@@ -32,6 +32,13 @@ Medico Chat Bot is a rule-based chatbot designed to facilitate the process of pl
 
 1. Clone the repository to your local machine.
 2. open home.html.
+3. if it doesnt work then from google download ngrok before clicking download create an account in ngrok.
+4. A zip folder is downloade in your downloads exttract that file into the repository where you have downloaded all my files
+5. then open main.py file in the terminal run pyhton main.py
+6. open cmd for the corrresponding directory where you have extracted ngrok
+7. then enter ngrok http [port] the port number on which your flask application is running
+8. It will give you a hhtps url
+9. Paste that url in this https://dialogflow.cloud.google.com/#/agent/medico-chatbot-avqc/fulfillment and click save and restart the home.html page
 
 ## Navigation
 
